@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=barlow-semi-condensed:300,500" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="headerFlex">
+        <h1>Unterrichtseinheiten Gehörbildung</h1>
+        <button id=addButton onclick="generateLecture()">Neue Einheit hinzufügen</button>
+    </header>
+    <main>
+        <div class="lectures-container" id="lectures-container">
+            <section class="lecture">
+                <h2>Einheit 1</h2>
+                <ul>
+                    <li>Begriff des Intervalls</li>
+                    <li>Konsonanz</li>
+                    <li>Dissonanz</li>
+                </ul>
+                <h2>Aufgaben</h2>
+                <ul>
+                    <li>Tabelle mit Liedanfängen</li>
+                    <li>Intervalle von vorgegebenen Tönen aufbauen</li>
+                </ul>
+                <h2>Aufgabenblatt</h2>
+                <div class="link-container">
+                    <a href="Aufgabe-Einheit01.pdf" download>
+                        <button>Aufgabenblatt 1 herunterladen</button>
+                    </a>
+                    <a href="Aufgabe-Einheit01.pdf" target="_blank">
+                        <button>Aufgabenblatt 1 öffnen</button>
+                    </a>
+                </div>
+            </section>
+            <section class="lecture">
+                <h2>Einheit 2</h2>
+                <ul>
+                    <li>Komplementäre Intervalle</li>
+                    <li>Tritonus</li>
+                    <li>Feinabstimmmung des Abstands zwischen den Tönen</li>
+                </ul>
+                <h2>Aufgaben</h2>
+                <ul>
+                    <li>Intervalle aufbauen</li>
+                    <li>Intervalle bezeichnen</li>
+                </ul>
+                <h2>Aufgabenblatt</h2>
+                <div class="link-container">
+                    <a href="Aufgabe-Einheit02.pdf" download>
+                        <button>Aufgabenblatt 2 herunterladen</button>
+                    </a>
+                    <a href="Aufgabe-Einheit02.pdf" target="_blank">
+                        <button>Aufgabenblatt 2 öffnen</button>
+                    </a>
+                </div>
+            </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+:root {
+  --design-col1: #2d3142;
+  --design-col2: #eaebeb;
+  --design-col3: #ffffff;
+  --design-col4: #ef8354;
+  --design-col5: #a9b3c6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#addButton {
+  align-self: center;
+}
+
+body {
+  margin: 1rem;
+  max-width: 75%;
+  margin: 0 auto;
+  color: var(--design-col1);
+}
+
+.lecture {
+  background-color: var(--design-col2);
+  padding: 0.75rem;
+  border: 1px solid var(--design-col5);
+  border-radius: 1rem;
+}
+
+.lectures-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+button {
+  margin-top: 0.5rem;
+  border: none;
+  background-color: var(--design-col5);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border-radius: 20px;
+  padding: 0.5rem 0.75rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+button:hover {
+  background-color: var(--design-col4);
+  transform: scale(1.05);
+}
+
+.link-container {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
