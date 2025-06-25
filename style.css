@@ -4,6 +4,7 @@
   --design-col3: #ffffff;
   --design-col4: #ef8354;
   --design-col5: #a9b3c6;
+  --design-col6: #FAD6C7;
 }
 
 * {
@@ -43,6 +44,36 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+.editableLecture {
+  background-color: var(--design-col6);
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  line-height: 1.6rem;
+}
+
+.smallInput {
+  width: 3rem;
+  border-radius: 5px;
+}
+
+.longInput {
+  width: 85%;
+
+}
+
 button {
   margin-top: 0.5rem;
   border: none;
@@ -54,6 +85,16 @@ button {
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 
+.btn-align {
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.save {
+  background-color: var(--design-col4);
+}
+
+
 button:hover {
   background-color: var(--design-col4);
   transform: scale(1.05);
@@ -63,4 +104,9 @@ button:hover {
   display: flex;
   gap: 1rem;
   align-items: stretch;
+}
+
+.remove-btn {
+  margin-left: 0.5rem;
+  line-height: 0.85rem;
 }
