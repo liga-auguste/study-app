@@ -1,0 +1,55 @@
+<section class="lecture">
+                <h2>Einheit 1</h2>
+                <ul>
+                    <li>Begriff des Intervalls</li>
+                    <li>Konsonanz</li>
+                    <li>Dissonanz</li>
+                </ul>
+                <h2>Aufgaben</h2>
+                <ul>
+                    <li>Tabelle mit Liedanfängen</li>
+                    <li>Intervalle von vorgegebenen Tönen aufbauen</li>
+                </ul>
+                <h2>Aufgabenblatt</h2>
+                <div class="link-container">
+                    <a href="Aufgabe-Einheit01.pdf" download>
+                        <button>Aufgabenblatt 1 herunterladen</button>
+                    </a>
+                    <a href="Aufgabe-Einheit01.pdf" target="_blank">
+                        <button>Aufgabenblatt 1 öffnen</button>
+                    </a>
+                </div>
+            </section>
+
+
+                        <section class="lecture editableLecture">
+                <div class="form-inline">
+                    <h2>Einheit</h2>
+                    <form class="form-inline" onfocus="this.value=''" action="/index.html" method="post">
+                        <input class="form-inline smallInput" type="number" name="lecture-number" min="3" max="40"
+                            onfocus="this.value=''">
+                    </form>
+                </div>
+                <ul id="inhalt-list">
+                    <!-- List items werden über JS befüllt -->
+                </ul>
+                <div class="btn-align">
+                    <button class="add-btn" onclick="addListItem('inhalt-list', 'begriff')">+Begriff</button>
+                </div>
+                <h2>Aufgaben</h2>
+                <ul id="aufgaben-list">
+                    <!-- <li>
+                        <input class="form-inline longInput" type="text" name="lecture-number" onfocus="this.value=''"
+                            value="Neue Aufgabe">
+                    </li> -->
+                </ul>
+                <div class="btn-align">
+                    <button class="add-btn" onclick="addListItem('aufgaben-list', 'aufgabe')">+Aufgabe</button>
+                </div>
+                <h2>Aufgabenblatt</h2>
+                <div class="link-container editableLinkCont">
+                    </a>
+                    <input class="custom-upload-button" type="file" id="fileUpload">
+                    <button class="add-btn save" onclick="speichern()">speichern</button>
+                </div>
+            </section>

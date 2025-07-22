@@ -4,7 +4,7 @@
   --design-col3: #ffffff;
   --design-col4: #ef8354;
   --design-col5: #a9b3c6;
-  --design-col6: #FAD6C7;
+  --design-col6: #fad6c7;
 }
 
 * {
@@ -53,6 +53,7 @@ body {
   flex-flow: row wrap;
   align-items: center;
   gap: 0.5rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 
 .form-inline input {
@@ -71,7 +72,6 @@ body {
 
 .longInput {
   width: 85%;
-
 }
 
 button {
@@ -94,7 +94,6 @@ button {
   background-color: var(--design-col4);
 }
 
-
 button:hover {
   background-color: var(--design-col4);
   transform: scale(1.05);
@@ -103,10 +102,29 @@ button:hover {
 .link-container {
   display: flex;
   gap: 1rem;
-  align-items: stretch;
+  -align-items: stretch;
+  justify-content: flex-end;
+}
+
+.custom-upload-button {
+  display: block;
+  padding: 8px 16px;
+  color: var(--design-col1);
+  cursor: pointer;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.editableLinkCont {
+  justify-content: space-between;
 }
 
 .remove-btn {
   margin-left: 0.5rem;
   line-height: 0.85rem;
+}
+
+@media screen and (max-width: 900px) {
+  .lectures-container {
+    display: block;
+  }
 }

@@ -1,54 +1,66 @@
-let unitCounter = 3;
-function generateLecture() {
+const lecturesData = [
+  {
+    title: "Einheit 1",
+    terms: [
+      "Tonraum „Oktave“",
+      "Konsonanz und Dissonanz",
+      "Komplementärintervalle",
+      "Liedanfänge",
+      "Intervalle von bestimmten Tönen aufbauen",
+    ],
+    tasks: [
+      "Intervalle von bestimmten Tönen aufbauen",
+      "Intervallreihe tonal in zwei andere Tonarten übertragen",
+      "Tabelle mit Liedanfängen vervollständigen",
+    ],
+    pdfHomework: [],
+  },
+  {
+    title: "Einheit 2",
+    terms: ["Referenzintervalle", "Liedanfänge", "Konsequente Bezeichnung"],
+    tasks: [
+      "Intervalle von bestimmten Tönen aufbauen",
+      "Intervalle bezeichnen",
+      "Intervallreihe tonal",
+    ],
+    pdfHomework: [],
+  },
+  {
+    title: "Einheit 3",
+    terms: [
+      "Bezeichnung der Tonhöhen",
+      "Oktavennamen",
+      "Alterationen",
+      "Notation: Schlüssel",
+      "Vorzeichen",
+      "Halsrichtung",
+    ],
+    tasks: [
+      "Fehler der Notation erkennen, benennen",
+      "Töne entsprechend der Bezeichnung notieren",
+      "Intervalle ↑↓ aufbauen",
+      "Hans-Peter Braun: Musiklehre (s. 310–316 lesen)",
+    ],
+    pdfHomework: [],
+  },
+];
+
+function renderLectures() {
   const container = document.getElementById("lectures-container");
-
-  const section = document.createElement("section");
-  section.className = "lecture";
-
-  const heading = document.createElement("h2");
-  heading.textContent = `Einheit ${unitCounter}`;
-
-  section.appendChild(heading);
-  container.appendChild(section);
-
-  unitCounter++;
+  console.log(container);
+  container.innerHTML = "";
+  lecturesData.forEach((lectureData) => {
+    console.log(lectureData);
+    const lectureSection = createLectureSection(lectureData);
+    container.appendChild(lectureSection);
+  });
 }
 
-function addListItem(containerId) {
-  const container = document.getElementById(containerId);
+function createLectureSection(data) {
+    const section = document.createElement("section");
+    section.innerHTML = data.title;
+    return section;
 
-  // Neues Listenelement
-  const li = document.createElement("li");
-
-  // Wrapper für Input + Button
-  const itemWrapper = document.createElement("div");
-  itemWrapper.className = "input-wrapper";
-
-  // Eingabefeld
-  const input = document.createElement("input");
-  input.type = "text";
-  input.name = "begriffe[]";
-  input.className = "begriff-input longInput";
-
-  // Optional: Input beim Fokus leeren
-  input.onfocus = function () {
-    this.value = '';
-  };
-
-  // Entfernen-Button
-  const removeBtn = document.createElement("button");
-  removeBtn.type = "button";
-  removeBtn.textContent = "✕";
-  removeBtn.className = "remove-btn";
-
-  removeBtn.onclick = function () {
-    container.removeChild(li);
-  };
-
-  // Elemente zusammensetzen
-  itemWrapper.appendChild(input);
-  itemWrapper.appendChild(removeBtn);
-  li.appendChild(itemWrapper);
-  container.appendChild(li);
 }
 
+renderLectures();
