@@ -125,6 +125,7 @@ button:hover {
 
 @media screen and (max-width: 900px) {
   .lectures-container {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

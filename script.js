@@ -49,18 +49,25 @@ function renderLectures() {
   const container = document.getElementById("lectures-container");
   console.log(container);
   container.innerHTML = "";
+  let unitNumber = 1;
   lecturesData.forEach((lectureData) => {
-    console.log(lectureData);
-    const lectureSection = createLectureSection(lectureData);
+    const lectureSection = createLectureSection(lectureData, unitNumber);
     container.appendChild(lectureSection);
+    unitNumber++;
   });
 }
 
-function createLectureSection(data) {
-    const section = document.createElement("section");
-    section.innerHTML = data.title;
-    return section;
 
+function createLectureSection(lectureData, unitNumber) {
+  const section = document.createElement("section");
+  // section.innerHTML = data.title;
+  section.className = "lecture";
+
+  const unitHeading = document.createElement("h2");
+  unitHeading.textContent = `Einheit ${unitNumber}`;
+
+  section.appendChild(unitHeading);
+  return section;
 }
 
 renderLectures();
