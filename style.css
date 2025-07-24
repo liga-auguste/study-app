@@ -36,7 +36,6 @@ body {
   padding: 0.75rem;
   border: 1px solid var(--design-col5);
   border-radius: 1rem;
-
   display: flex; 
   flex-direction: column;
 }
@@ -45,6 +44,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
+  align-items: stretch;
 }
 
 .editableLecture {
@@ -107,7 +107,7 @@ button:hover {
   gap: 1rem;
   justify-content: flex-end;
   align-items: flex-end;
-  background-color: red;
+  margin-top: auto;
 }
 
 .custom-upload-button {

@@ -98,7 +98,7 @@ function createLectureSection(lectureData, unitNumber) {
     if (lectureData.pdfHomework.length > 0) {
     lectureData.pdfHomework.forEach((file) => {
       const openLink = document.createElement("a");
-      openLink.href = file;
+      openLink.href = file.file;
       openLink.target = "_blank";
       
       const openButton = document.createElement("button")
@@ -106,7 +106,7 @@ function createLectureSection(lectureData, unitNumber) {
       openLink.appendChild(openButton);
       
       const downloadLink = document.createElement("a");
-      downloadLink.href = file;
+      downloadLink.href = file.file;
       downloadLink.download = "";
       
       const downloadButton = document.createElement("button");
