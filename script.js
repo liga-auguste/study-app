@@ -13,7 +13,9 @@ const lecturesData = [
       "Intervallreihe tonal in zwei andere Tonarten übertragen",
       "Tabelle mit Liedanfängen vervollständigen",
     ],
-    pdfHomework: [],
+    pdfHomework: [
+      { file: "Aufgabe-Einheit01.pdf", label: "Aufgabenblatt 1" }
+    ],
   },
   {
     title: "Einheit 2",
@@ -23,7 +25,9 @@ const lecturesData = [
       "Intervalle bezeichnen",
       "Intervallreihe tonal",
     ],
-    pdfHomework: [],
+    pdfHomework: [
+      { file: "Aufgabe-Einheit02.pdf", label: "Aufgabenblatt 2" }
+    ],
   },
   {
     title: "Einheit 3",
@@ -41,13 +45,16 @@ const lecturesData = [
       "Intervalle ↑↓ aufbauen",
       "Hans-Peter Braun: Musiklehre (s. 310–316 lesen)",
     ],
-    pdfHomework: [],
+    pdfHomework: [
+      { file: "Aufgabe-Einheit03.pdf", label: "Aufgabenblatt 3" }
+    ],
   },
 ];
 
+
 function renderLectures() {
   const container = document.getElementById("lectures-container");
-  console.log(container);
+  // console.log(container);
   container.innerHTML = "";
   let unitNumber = 1;
   lecturesData.forEach((lectureData) => {
@@ -57,7 +64,6 @@ function renderLectures() {
   });
 }
 
-
 function createLectureSection(lectureData, unitNumber) {
   const section = document.createElement("section");
   // section.innerHTML = data.title;
@@ -66,7 +72,59 @@ function createLectureSection(lectureData, unitNumber) {
   const unitHeading = document.createElement("h2");
   unitHeading.textContent = `Einheit ${unitNumber}`;
 
+  const termList = document.createElement("ul");
+  lectureData.terms.forEach((term) => {
+    const termListItem = document.createElement("li");
+    termListItem.textContent = term;
+    termList.appendChild(termListItem);
+})
+
+  const taskHeading = document.createElement("h3");
+  taskHeading.textContent = "Aufgaben";
+
+  const taskList = document.createElement("ul");
+  lectureData.tasks.forEach((task) => {
+    const taskListItem = document.createElement("li");
+    taskListItem.textContent = task;
+    taskList.appendChild(taskListItem);
+  });
+
+  const pdfHeading = document.createElement("h3");
+  pdfHeading.textContent = "PDFs & Aufgaben";
+
+  const linkList = document.createElement("div");
+  linkList.className = "link-container";
+
+    if (lectureData.pdfHomework.length > 0) {
+    lectureData.pdfHomework.forEach((file) => {
+      const openLink = document.createElement("a");
+      openLink.href = file;
+      openLink.target = "_blank";
+      
+      const openButton = document.createElement("button")
+      openButton.textContent = `Aufgaben ${unitNumber} öffnen`;
+      openLink.appendChild(openButton);
+      
+      const downloadLink = document.createElement("a");
+      downloadLink.href = file;
+      downloadLink.download = "";
+      
+      const downloadButton = document.createElement("button");
+      downloadButton.textContent = `Aufgabenblatt ${unitNumber} herunterladen`;      
+      downloadLink.appendChild(downloadButton)
+      linkList.appendChild(openLink);
+      linkList.appendChild(downloadLink);
+    });
+
+  }
+
   section.appendChild(unitHeading);
+  section.appendChild(termList);
+  section.appendChild(taskHeading);
+  section.appendChild(taskList);
+  section.appendChild(pdfHeading);
+  section.appendChild(linkList);
+  
   return section;
 }
 

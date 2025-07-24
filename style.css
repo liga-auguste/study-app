@@ -36,6 +36,9 @@ body {
   padding: 0.75rem;
   border: 1px solid var(--design-col5);
   border-radius: 1rem;
+
+  display: flex; 
+  flex-direction: column;
 }
 
 .lectures-container {
@@ -102,8 +105,9 @@ button:hover {
 .link-container {
   display: flex;
   gap: 1rem;
-  -align-items: stretch;
   justify-content: flex-end;
+  align-items: flex-end;
+  background-color: red;
 }
 
 .custom-upload-button {
@@ -128,4 +132,8 @@ button:hover {
     display: grid;
     grid-template-columns: 1fr;
   }
+}
+
+.example-section {
+  padding-top: 1rem;
 }
