@@ -1,6 +1,6 @@
 const lecturesData = [
   {
-    title: "Einheit 1",
+    title: "Modul 1",
     terms: [
       "Tonraum „Oktave“",
       "Konsonanz und Dissonanz",
@@ -13,24 +13,20 @@ const lecturesData = [
       "Intervallreihe tonal in zwei andere Tonarten übertragen",
       "Tabelle mit Liedanfängen vervollständigen",
     ],
-    pdfHomework: [
-      { file: "Aufgabe-Einheit01.pdf", label: "Aufgabenblatt 1" }
-    ],
+    pdfHomework: [{ file: "Aufgabe-Einheit01.pdf", label: "Aufgabenblatt 1" }],
   },
   {
-    title: "Einheit 2",
+    title: "Modul 2",
     terms: ["Referenzintervalle", "Liedanfänge", "Konsequente Bezeichnung"],
     tasks: [
       "Intervalle von bestimmten Tönen aufbauen",
       "Intervalle bezeichnen",
       "Intervallreihe tonal",
     ],
-    pdfHomework: [
-      { file: "Aufgabe-Einheit02.pdf", label: "Aufgabenblatt 2" }
-    ],
+    pdfHomework: [{ file: "Aufgabe-Einheit02.pdf", label: "Aufgabenblatt 2" }],
   },
   {
-    title: "Einheit 3",
+    title: "Modul 3",
     terms: [
       "Bezeichnung der Tonhöhen",
       "Oktavennamen",
@@ -45,12 +41,9 @@ const lecturesData = [
       "Intervalle ↑↓ aufbauen",
       "Hans-Peter Braun: Musiklehre (s. 310–316 lesen)",
     ],
-    pdfHomework: [
-      { file: "Aufgabe-Einheit03.pdf", label: "Aufgabenblatt 3" }
-    ],
+    pdfHomework: [{ file: "Aufgabe-Einheit03.pdf", label: "Aufgabenblatt 3" }],
   },
 ];
-
 
 function renderLectures() {
   const container = document.getElementById("lectures-container");
@@ -70,14 +63,15 @@ function createLectureSection(lectureData, unitNumber) {
   section.className = "lecture";
 
   const unitHeading = document.createElement("h2");
-  unitHeading.textContent = `Einheit ${unitNumber}`;
+  unitHeading.textContent = `Modul ${unitNumber}`;
+  unitHeading.className = "sectionHeading";
 
   const termList = document.createElement("ul");
   lectureData.terms.forEach((term) => {
     const termListItem = document.createElement("li");
     termListItem.textContent = term;
     termList.appendChild(termListItem);
-})
+  });
 
   const taskHeading = document.createElement("h3");
   taskHeading.textContent = "Aufgaben";
@@ -95,27 +89,26 @@ function createLectureSection(lectureData, unitNumber) {
   const linkList = document.createElement("div");
   linkList.className = "link-container";
 
-    if (lectureData.pdfHomework.length > 0) {
+  if (lectureData.pdfHomework.length > 0) {
     lectureData.pdfHomework.forEach((file) => {
       const openLink = document.createElement("a");
       openLink.href = file.file;
       openLink.target = "_blank";
-      
-      const openButton = document.createElement("button")
+
+      const openButton = document.createElement("button");
       openButton.textContent = `Aufgaben ${unitNumber} öffnen`;
       openLink.appendChild(openButton);
-      
+
       const downloadLink = document.createElement("a");
       downloadLink.href = file.file;
       downloadLink.download = "";
-      
+
       const downloadButton = document.createElement("button");
-      downloadButton.textContent = `Aufgabenblatt ${unitNumber} herunterladen`;      
-      downloadLink.appendChild(downloadButton)
+      downloadButton.textContent = `Aufgabenblatt ${unitNumber} herunterladen`;
+      downloadLink.appendChild(downloadButton);
       linkList.appendChild(openLink);
       linkList.appendChild(downloadLink);
     });
-
   }
 
   section.appendChild(unitHeading);
@@ -124,7 +117,7 @@ function createLectureSection(lectureData, unitNumber) {
   section.appendChild(taskList);
   section.appendChild(pdfHeading);
   section.appendChild(linkList);
-  
+
   return section;
 }
 
