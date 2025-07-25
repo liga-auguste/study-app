@@ -5,6 +5,7 @@
   --design-col4: #ef8354;
   --design-col5: #a9b3c6;
   --design-col6: #fad6c7;
+  --design-col7: #DADFE7;
 }
 
 * {
@@ -38,6 +39,12 @@ body {
   border-radius: 1rem;
   display: flex; 
   flex-direction: column;
+}
+
+.lecture:hover {
+  background-color: var(--design-col7);
+  /* transform: scale(1.01);
+  transition: transform 0.3s ease, background-color 0.3s ease; */
 }
 
 .lectures-container {

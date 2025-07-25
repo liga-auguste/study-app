@@ -74,7 +74,7 @@ function createLectureSection(lectureData, unitNumber) {
   });
 
   const taskHeading = document.createElement("h3");
-  taskHeading.textContent = "Aufgaben";
+  taskHeading.textContent = "Hausaufgabe";
 
   const taskList = document.createElement("ul");
   lectureData.tasks.forEach((task) => {
@@ -96,7 +96,7 @@ function createLectureSection(lectureData, unitNumber) {
       openLink.target = "_blank";
 
       const openButton = document.createElement("button");
-      openButton.textContent = `Aufgaben ${unitNumber} öffnen`;
+      openButton.textContent = `Hausaufgabe ${unitNumber} öffnen`;
       openLink.appendChild(openButton);
 
       const downloadLink = document.createElement("a");
