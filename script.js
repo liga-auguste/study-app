@@ -121,4 +121,24 @@ function createLectureSection(lectureData, unitNumber) {
   return section;
 }
 
+const toggle = document.getElementById("switch");
+
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode");
+
+  if (toggle.checked) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    toggle.checked = true;
+  }
+});
+
 renderLectures();
