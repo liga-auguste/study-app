@@ -53,8 +53,7 @@ body {
 
 .lecture:hover {
   background-color: var(--design-col7);
-  /* transform: scale(1.01);
-  transition: transform 0.3s ease, background-color 0.3s ease; */
+  transition: transform 0.5s ease, background-color 0.5s ease; */
 }
 
 .lectures-container {
@@ -91,7 +90,7 @@ body {
 }
 
 .longInput {
-  width: 85%;
+  width: 100%;
 }
 
 button {
@@ -103,7 +102,7 @@ button {
   transition: transform 0.2s ease, background-color 0.3s ease;
   border-radius: 20px;
   padding: 0.5rem 0.75rem;
-  font-family: "Barlow Semi Condensed", sans-serif;
+  font-family: inherit;
 }
 
 .btn-align {
@@ -152,9 +151,6 @@ button:hover {
   }
 }
 
-.example-section {
-  padding-top: 1rem;
-}
 
 /*dark mode*/
 @media screen and (prefers-color-scheme: dark) {
@@ -240,4 +236,50 @@ label.toggle:active::after {
 
 #switch {
   margin-top: 27px;
+}
+
+/* Modal */
+dialog {
+  padding: 1.5rem;
+  border-radius: 6px;
+  background-color: var(--design-col7);
+  line-height: 1.5rem;
+}
+
+dialog::backdrop {
+  background-color: rgb(0,0,0,0.6);
+}
+
+body.dark-mode dialog {
+  background-color: var(--design-col7);
+  color: var(--design-col1);
+}
+
+body.dark-mode dialog input,
+body.dark-mode dialog textarea,
+body.dark-mode dialog select {
+  background-color: #1e1e1e;
+  color: var(--design-col1);
+  border: 1px solid var(--design-col5);
+}
+
+body.dark-mode dialog button {
+  background-color: var(--design-col5);
+  color: var(--design-col1);
+}
+
+.custom-upload-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--design-col5);
+  color: var(--design-col1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: inherit;
+}
+
+.custom-upload-button:hover {
+  background-color: var(--design-col4);
+  transform: scale(1.05);
 }
