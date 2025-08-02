@@ -1,20 +1,23 @@
 :root {
-  /* Text color */
-  --design-col1: #2d3142;
-  /* Lecture background */
-  --design-col2: #eaebeb;
-  /* not used */
-  --design-col3: #ffffff;
-  /* save button during hover */
-  --design-col4: #ef8354;
-  /* button color */
-  --design-col5: #a9b3c6;
-  /* editable lecture, not used at the moment */
-  --design-col6: #fad6c7;
-  /* lecture during hover */
-  --design-col7: #dadfe7;
-  /* dark backgroung almost black */
-  --design-col8: #121212;
+  --bcg-col: white;
+  --text-color: #2d3142;
+  --lecture-bcg: #eaebeb;
+  --bcg: #ffffff;
+  --btn-hover: #ef8354;
+  --btn: #a9b3c6;
+  --acc-col-faded: #fad6c7;
+  --lecture-hover: #dadfe7;
+}
+
+.darkmode {
+  --bcg-col: #121212;
+  --text-color: rgb(193, 194, 198);
+  --lecture-bcg: #252424;
+  --bcg: #ffffff;
+  --btn-hover: #6c3e2b;
+  --btn: #34435b;
+  --acc-col-faded: #fad6c7;
+  --lecture-hover: #3c3c3f;
 }
 
 * {
@@ -39,21 +42,22 @@ body {
   margin: 1rem;
   max-width: 75%;
   margin: 0 auto;
-  color: var(--design-col1);
+  color: var(--text-color);
+  background-color: var(--bcg-col);
 }
 
 .lecture {
-  background-color: var(--design-col2);
+  background-color: var(--lecture-bcg);
   padding: 0.75rem;
-  border: 1px solid var(--design-col5);
+  border: 1px solid var(--btn);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
 }
 
 .lecture:hover {
-  background-color: var(--design-col7);
-  transition: transform 0.5s ease, background-color 0.5s ease; */
+  background-color: var(--lecture-hover);
+  transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
 .lectures-container {
@@ -64,7 +68,7 @@ body {
 }
 
 .editableLecture {
-  background-color: var(--design-col6);
+  background-color: var(--acc-col-faded);
 }
 
 .form-inline {
@@ -96,8 +100,8 @@ body {
 button {
   margin-top: 0.5rem;
   border: none;
-  background-color: var(--design-col5);
-  color: var(--design-col1);
+  background-color: var(--btn);
+  color: var(--text-color);
   text-decoration: none;
   transition: transform 0.2s ease, background-color 0.3s ease;
   border-radius: 20px;
@@ -111,11 +115,11 @@ button {
 }
 
 .save {
-  background-color: var(--design-col4);
+  background-color: var(--btn-hover);
 }
 
 button:hover {
-  background-color: var(--design-col4);
+  background-color: var(--btn-hover);
   transform: scale(1.05);
 }
 
@@ -130,7 +134,7 @@ button:hover {
 .custom-upload-button {
   display: block;
   padding: 8px 16px;
-  color: var(--design-col1);
+  color: var(--text-color);
   cursor: pointer;
   font-family: "Barlow Semi Condensed", sans-serif;
 }
@@ -144,105 +148,60 @@ button:hover {
   line-height: 0.85rem;
 }
 
-@media screen and (max-width: 900px) {
+/* small screens */
+@media screen and (max-width: 765px) {
   .lectures-container {
     display: grid;
     grid-template-columns: 1fr;
   }
 }
 
+/* medium screens */
+@media screen and (min-width: 766px) {
 
-/*dark mode*/
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    background-color: #191919;
-    /* Text color */
-    --design-col1: rgb(193, 194, 198);
-    /* Lecture background */
-    --design-col2: #252424;
-    /* not used */
-    --design-col3: #ffffff;
-    /* save button during hover */
-    --design-col4: #6c3e2b;
-    /* button color */
-    --design-col5: #33364c;
-    /* editable lecture, not used at the moment */
-    --design-col6: #fad6c7;
-    /* lecture during hover */
-    --design-col7: #2b2b2d;
-    /* dark background almost black */
-    --design-col8: #121212;
-  }
 }
-body.dark-mode {
-  --design-col1: rgb(193, 194, 198);
-  --design-col2: #252424;
-  --design-col3: #ffffff;
-  --design-col4: #6c3e2b;
-  --design-col5: #33364c;
-  --design-col6: #fad6c7;
-  --design-col7: #2b2b2d;
-  --design-col8: #121212;
-  background-color: #191919;
+/* large screens */
+@media screen and (min-width: 1200px) {
+
 }
 
-/* TOGGLE */
-.toggle {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-input[type="checkbox"] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-label.toggle {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 46px;
-  height: 23px;
-  background-color: var(--design-col5);
-  display: inline-block;
-  border-radius: 100px;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-label.toggle::after {
-  content: "";
-  position: absolute;
-  top: 2.5px;
-  left: 2.5px;
-  width: 18px;
-  height: 18px;
-  background-color: var(--design-col3);
-  border-radius: 50%;
-  transition: 0.3s;
-}
-
-input:checked + label.toggle {
-  background-color: var(--design-col5);
-}
-
-input:checked + label.toggle::after {
-  left: 25.5px;
-}
-
-label.toggle:active::after {
-  width: 23px;
-}
-
+/* Darkmode switch */
 #switch {
   margin-top: 27px;
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--btn);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+#theme-switch svg {
+  fill: var(--text-color)
+}
+#theme-switch svg:last-child {
+  display: none;
+}
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 
 /* Modal */
 dialog {
   padding: 1.5rem;
   border-radius: 6px;
-  background-color: var(--design-col7);
+  background-color: var(--lecture-hover);
   line-height: 1.5rem;
 }
 
@@ -250,29 +209,29 @@ dialog::backdrop {
   background-color: rgb(0,0,0,0.6);
 }
 
-body.dark-mode dialog {
-  background-color: var(--design-col7);
-  color: var(--design-col1);
+body.darkmode dialog {
+  background-color: var(--lecture-hover);
+  color: var(--text-color);
 }
 
-body.dark-mode dialog input,
-body.dark-mode dialog textarea,
-body.dark-mode dialog select {
+body.darkmode dialog input,
+body.darkmode dialog textarea,
+body.darkmode dialog select {
   background-color: #1e1e1e;
-  color: var(--design-col1);
-  border: 1px solid var(--design-col5);
+  color: var(--text-color);
+  border: 1px solid var(--btn);
 }
 
-body.dark-mode dialog button {
-  background-color: var(--design-col5);
-  color: var(--design-col1);
+body.darkmode dialog button {
+  background-color: var(--btn);
+  color: var(--text-color);
 }
 
 .custom-upload-button {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: var(--design-col5);
-  color: var(--design-col1);
+  background-color: var(--btn);
+  color: var(--text-color);
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -280,6 +239,7 @@ body.dark-mode dialog button {
 }
 
 .custom-upload-button:hover {
-  background-color: var(--design-col4);
+  background-color: var(--btn-hover);
   transform: scale(1.05);
 }
+

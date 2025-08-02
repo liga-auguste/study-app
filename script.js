@@ -121,26 +121,6 @@ function createLectureSection(lectureData, unitNumber) {
   return section;
 }
 
-const toggle = document.getElementById("switch");
-
-toggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode");
-
-  if (toggle.checked) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    toggle.checked = true;
-  }
-});
-
 const openBtn = document.querySelector('#open-modal');
 const dialog = document.querySelector('#dialog');
 const closeBtn = document.querySelector('#close-modal');
@@ -148,4 +128,27 @@ const closeBtn = document.querySelector('#close-modal');
 openBtn.addEventListener('click', () => dialog.showModal());
 closeBtn.addEventListener('click', () => dialog.close());
 
+// Darkmode
+let darkmode = localStorage.getItem('darkmode');
+const themeSwitch = document.getElementById('theme-switch');
+
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode');
+  localStorage.setItem('darkmode', 'active')
+};
+
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode');
+    localStorage.setItem('darkmode', 'null');
+};
+
+if(darkmode === "active") enableDarkmode(); 
+
+themeSwitch.addEventListener("click", () => {
+  darkmode = localStorage.getItem('darkmode');
+  darkmode !== "active" ? enableDarkmode() : disableDarkmode();
+});
+// <-- Darkmode
+
 renderLectures();
+
