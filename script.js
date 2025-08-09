@@ -130,7 +130,7 @@ closeBtn.addEventListener('click', () => dialog.close());
 
 // Darkmode
 let darkmode = localStorage.getItem('darkmode');
-const themeSwitch = document.getElementById('theme-switch');
+const themeSwitch = document.getElementById('themeSwitch');
 
 const enableDarkmode = () => {
   document.body.classList.add('darkmode');
@@ -139,7 +139,7 @@ const enableDarkmode = () => {
 
 const disableDarkmode = () => {
   document.body.classList.remove('darkmode');
-    localStorage.setItem('darkmode', 'null');
+    localStorage.setItem('darkmode', null);
 };
 
 if(darkmode === "active") enableDarkmode(); 
